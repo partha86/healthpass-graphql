@@ -54,7 +54,7 @@
       }
     ],
     "name": "ApprovalForAll",
-    "type": "event"
+    "type": "event" 
   },
   {
     "anonymous": false,

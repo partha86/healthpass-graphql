@@ -1,6 +1,7 @@
-type ExampleEntity @entity {
+type Certificate @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+  region: String
+  category: String
+  country: String
+  vendor: String
 }

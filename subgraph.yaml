@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -6,30 +6,19 @@ dataSources:
     name: HealthPass
     network: rinkeby
     source:
-      address: "0xB78445A2b326fD5E79C61e574fa89f88d3F864f7"
+      address: "0xbd02624CDE9dc107f0aECF35D58f1a1702E7164F"
       abi: HealthPass
+      startBlock: 10059666
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
         - CertificateIssued
-        - OwnershipTransferred
-        - Transfer
       abis:
         - name: HealthPass
           file: ./abis/HealthPass.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
         - event: CertificateIssued(indexed uint256,(string,string,string,string))
           handler: handleCertificateIssued
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
       file: ./src/mapping.ts
